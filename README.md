@@ -9,9 +9,18 @@
 Theme: Vaporwave, early 90s web design, funky :D
 
 
+helpful:
+https://jdan.github.io/98.css/
+https://sakofchit.github.io/system.css/
+
+
 fun websites:
+https://bytemoth.nfshost.com/cd5k-net//tau/
 neal.fun
 https://www.summer23.me/
 https://github.com/jianmin-chen/summer23
 
+webrings:
+https://webring.dinhe.net/
+mayf.pink
 ![image](https://github.com/revaga/revaga.github.io/assets/58123400/ee71bf04-3e2f-4efc-bafb-5930cb7de8e0)
