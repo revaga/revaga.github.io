@@ -1,0 +1,7 @@
+body{
+  background-size: cover;  background-image: url(./prettybackground.png);  
+}
+
+div.time {
+    margin-right: 16px; margin-bottom: 10px; display: flex; justify-content: right;
+}
