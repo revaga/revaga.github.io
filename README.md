@@ -20,6 +20,7 @@ fun websites:
 * neal.fun
 * https://www.summer23.me/
 * https://github.com/jianmin-chen/summer23
+* https://projects.kwon.nyc/internet-is-fun/
 
 webrings:
 * https://webring.dinhe.net/
