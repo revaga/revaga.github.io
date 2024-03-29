@@ -5,3 +5,16 @@ body{
 div.time {
     margin-right: 16px; margin-bottom: 10px; display: flex; justify-content: right;
 }
+
+div.window{
+    width: 20px;
+    position: absolute;
+    z-index: 9px;
+}
+div.select{
+    user-select: none; cursor: grab; z-index: 10;
+}
+div.desktopApps{
+  padding-top: 2px; padding-left: 16px; 
+  text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;
+}

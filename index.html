@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <head>
-  <title>System.css Starter</title>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+  <link rel="stylesheet" href="system.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="script.js"></script>  
-  <!--<link rel="stylesheet" href="https://unpkg.com/98.css" /!-->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/98.css" /> -->
 
 
 </head>
 
 
-<body >
+<body>
   <div class="time">
     <p id="timeElement">
         Time
     </p>
   </div>
     
-
-  <div class="window" id="window" style="width: 20px">
-    <div class="title-bar" id="windowheader" style="user-select: none; cursor: grab;">
-      <button aria-label="Close" class="close" id="close" style="cursor:pointer;"></button>
+  
+  <div class="window" id="window">
+    <div class="select title-bar" id="windowheader" >
+      <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('window'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >RevaOS</h1>
       <button aria-label="Resize" class="resize" id="resize"></button>
     </div>
@@ -31,9 +30,48 @@
     </div>
   </div>
 
+  <div class="desktopApps" id="desktopApps" style="display: none;">
+       <div class="selected">
+          <img src="./rainbow.jpg" style="width: 64px; height: 64px; border-radius: 16px; box-shadow: 2px;">
+       </div>
+        <p style="margin: 0px; color: #fff; ">Notes</p>
+  </div>
+
+  <div class="window" id="notes" style="display:none;" >
+    <div class="select title-bar" id="notesheader">
+      <button aria-label="Close" class="close" id="closenotes" onclick = "closeWindow(document.getElementById('notes'))" style="cursor:pointer;"></button>
+      <h1 class="title" id="title" >Notes</h1>
+      <button aria-label="Resize" class="resize" id="resizenotes"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      insert notes here
+      <input aria-label="Example text box" type="text" placeholder="some cool text"/>
+    </div>
+  </div>
+  <button class="btn" onclick="openNotes(document.getElementById('notes'))"> notes </button>
+
+  <button class="btn" onclick="openNotes(document.getElementById('art'))"> art </button>
   
+  <div class="window" id="art" style="display:none; width: 200px; height: 200px;" >
+    <div class="select title-bar" id="artheader">
+      <button aria-label="Close" class="close" id="closeart" onclick = "closeWindow(document.getElementById('art'))" style="cursor:pointer;"></button>
+      <h1 class="title" id="title" > p5.js Art </h1>
+      <button aria-label="Resize" class="resize" id="resizeart"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+    </div>
+  </div>
+
+
+
 </body>
-  
+<script src="script.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
+
+
 </html>
 
 

@@ -7,6 +7,8 @@ setInterval(updateTime, 1);
 
 // Make the DIV element draggable:
 window.onload = dragElement(document.getElementById("window"));
+window.onload = dragElement(document.getElementById("notes"));
+window.onload = dragElement(document.getElementById("art"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -36,7 +38,7 @@ function dragElement(element) {
     initialY = e.clientY;
     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
-    document.onmousemove = dragElement();
+    document.onmousemove = dragElement;
   }
 
   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
@@ -60,52 +62,119 @@ function dragElement(element) {
 }
 
 
-  /*
-  window.onload = addListeners;
-function addListeners(){
-    document.getElementById('window').addEventListener('mousedown', mouseDown, false);
-    window.addEventListener('mouseup', mouseUp, false);
-
-}
-
-function mouseUp()
-{
-    window.removeEventListener('mousemove', divMove, true);
-}
-
-function mouseDown(e){
-  window.addEventListener('mousemove', divMove, true);
-}
-
-function divMove(e){
-  var div = document.getElementById('window');
-  div.style.position = 'absolute';
-  div.style.top = (e.clientY - offsetY) + 'px';
-  div.style.left = (e.clientX - offsetX) + 'px';
-}
-
-*/
-
-
-/*
-var welcomeScreen = document.querySelector("#window")
-var welcomeScreenClose = document.querySelector("#c")
-
-var welcomeScreenOpen = document.querySelector("#resize")
-
-welcomeScreenClose.addEventListener("click", function() {
-    closeWindow(welcomeScreen);
-  });
-  
-  welcomeScreenOpen.addEventListener("click", function() {
-    openWindow(welcomeScreen);
-  });
-
-function openWindow(element) {
-    element.style.display = "flex"
-  }
-
+//closing a window
 function closeWindow(element) {
     element.style.display = "none"
   }
-  */
+
+
+
+
+var selectedIcon = undefined;
+
+function selectIcon(element){
+  element.classList.add("selected")
+  selectedIcon = element
+}
+
+function  deselectIcon(element){
+  element.classList.remove("selected")
+  selectedIcon = undefined
+}
+
+function handleIconTap(element){
+  if(element.classList.contains("selected")){
+    deselectIcon(element)
+    openWindow(window)
+  }
+  else{
+    selectIcon(element)
+  }
+}
+
+var welcomeScreen = document.querySelector("#window")
+var notesScreen = document.querySelector("#notes")
+
+
+
+var biggestIndex = 1
+
+function addWindowTapHandling(element) {
+  //puts the current window in front of the other
+  element.addEventListener("mousedown", () =>
+    handleWindowTap(element)
+  )
+}
+addWindowTapHandling(welcomeScreen)
+addWindowTapHandling(notesScreen)
+
+
+function openWindow(element) {
+  element.style.display = "flex";
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
+}
+
+function handleWindowTap(element) {
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  deselectIcon(selectedIcon)
+}
+
+/*
+function initializeWindow(elementName) {
+  var screen = document.querySelector("#" + elementName)
+  addWindowTapHandling(screen)
+  dragElement(screen)
+}
+*/
+
+//confetti
+
+
+function openNotes(element) {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { x: 0.05, y: 0.2 },
+  });
+  element.style.display = "flex";
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
+ 
+}
+
+function initializeWindowart(elementName) {
+  var screen = document.querySelector("#" + elementName)
+  var element = document.getElementById("art");
+  addWindowTapHandling(screen)
+  windows.onload = dragElement(elementName)
+  if(elementName != "welcome") {
+  initializeIcon(elementName)  
+  }
+  setup();
+  draw();
+
+  function setup() {
+    createCanvas(200, 200);
+    background(0,0,0);
+  }
+  function windowResized() {
+    resizeCanvas(500, 500);
+  }
+  function draw() {
+    if (mouseIsPressed) {
+      fill(0);
+    } else {
+      fill(255);
+    }
+    ellipse(mouseX, mouseY, 80, 80);
+  }
+  windowResized();
+  }
+
+  initializeWindowart("art")
+
+  
