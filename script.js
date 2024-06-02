@@ -9,6 +9,7 @@ setInterval(updateTime, 1);
 window.onload = dragElement(document.getElementById("window"));
 window.onload = dragElement(document.getElementById("notes"));
 window.onload = dragElement(document.getElementById("art"))
+window.onload = dragElement(document.getElementById("typical"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
