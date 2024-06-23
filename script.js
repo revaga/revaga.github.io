@@ -9,7 +9,7 @@ setInterval(updateTime, 1);
 window.onload = dragElement(document.getElementById("main"));
 window.onload = dragElement(document.getElementById("notes"));
 window.onload = dragElement(document.getElementById("art"))
-window.onload = dragElement(document.getElementById("typical"))
+window.onload = dragElement(document.getElementById("guitar"))
 window.onload = dragElement(document.getElementById("lemonade"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -153,6 +153,7 @@ function openNotes(element) {
  
 }
 
+/*
 function initializeWindowart(elementName) {
   var screen = document.querySelector("#" + elementName)
   var element = document.getElementById("art");
@@ -180,19 +181,41 @@ function initializeWindowart(elementName) {
     ellipse(mouseX, mouseY, 80, 80);
   }
   windowResized();
-  }
+  } 
 
-  initializeWindowart("art")
+  initializeWindowart("art") */
 
   let sketch = function(p) {
     p.setup = function() {
         let canvas = p.createCanvas(400, 400);
-        p.background(220);
-        // Your drawing code here
+        p.background(51);
     };
 
     p.draw = function() {
-        // Drawing code here
+      p.background(220);
+
+      p.orbitControl();
+
+      p.fill(255,0,0,128);
+
+      var numVertices = 200;
+      p.translate(0,numVertices,0);
+      p.rotateY(-millis()/500);
+      if(mouseIsPressed){
+          rotateY(millis()/500);
+
+      }
+      p.scale(40);
+      p.beginShape();
+      for(let i = 0; i < numVertices; i++) {
+        p.vertex(
+          p.sin((i/numVertices*TWO_PI)*5)*p.sin(i/numVertices*PI)*2,
+          -i/10,
+          p.cos((i/numVertices*TWO_PI)*5)*p.sin(i/numVertices*PI)*2,
+        );
+      }
+      p.endShape();
+
     };
 };
 
