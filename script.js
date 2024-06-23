@@ -10,6 +10,7 @@ window.onload = dragElement(document.getElementById("window"));
 window.onload = dragElement(document.getElementById("notes"));
 window.onload = dragElement(document.getElementById("art"))
 window.onload = dragElement(document.getElementById("typical"))
+window.onload = dragElement(document.getElementById("lemonade"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -95,6 +96,12 @@ function handleIconTap(element){
 
 var welcomeScreen = document.querySelector("#window")
 var notesScreen = document.querySelector("#notes")
+var typicalScreen = document.querySelector("#typical")
+var lemonadeScreen = document.querySelector("#lemonade")
+
+addWindowTapHandling(welcomeScreen)
+addWindowTapHandling(notesScreen)
+addWindowTapHandling(lemonadeScreen)
 
 
 
@@ -106,8 +113,7 @@ function addWindowTapHandling(element) {
     handleWindowTap(element)
   )
 }
-addWindowTapHandling(welcomeScreen)
-addWindowTapHandling(notesScreen)
+
 
 
 function openWindow(element) {
