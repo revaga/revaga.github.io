@@ -6,7 +6,7 @@ setInterval(updateTime, 1);
 
 
 // Make the DIV element draggable:
-window.onload = dragElement(document.getElementById("window"));
+window.onload = dragElement(document.getElementById("main"));
 window.onload = dragElement(document.getElementById("notes"));
 window.onload = dragElement(document.getElementById("art"))
 window.onload = dragElement(document.getElementById("typical"))
@@ -94,7 +94,7 @@ function handleIconTap(element){
   }
 }
 
-var welcomeScreen = document.querySelector("#window")
+var welcomeScreen = document.querySelector("#main")
 var notesScreen = document.querySelector("#notes")
 var typicalScreen = document.querySelector("#typical")
 var lemonadeScreen = document.querySelector("#lemonade")
@@ -184,4 +184,17 @@ function initializeWindowart(elementName) {
 
   initializeWindowart("art")
 
+  let sketch = function(p) {
+    p.setup = function() {
+        let canvas = p.createCanvas(400, 400);
+        p.background(220);
+        // Your drawing code here
+    };
+
+    p.draw = function() {
+        // Drawing code here
+    };
+};
+
+let p5canvas = new p5(sketch, 'divid');
   

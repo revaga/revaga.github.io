@@ -1,5 +1,5 @@
 body{
-  background-size: cover;  background-image: url(./prettybackground.png);  
+  background-size: cover;  background-image: url(./prettybackground.png);
 }
 
 div.time {
@@ -7,14 +7,25 @@ div.time {
 }
 
 div.window{
+    display: flex;
     width: 20px;
     position: absolute;
     z-index: 9px;
 }
+
 div.select{
     user-select: none; cursor: grab; z-index: 10;
 }
 div.desktopApps{
   padding-top: 2px; padding-left: 16px; 
   text-align: center; padding: 16px; filter: drop-shadow(0 0 8px black); width: fit-content;
+}
+
+div.window#window{
+  align-items: center;
+}  
+
+div.window#art{
+  position: absolute;
+
 }
