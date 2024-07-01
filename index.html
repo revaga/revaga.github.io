@@ -3,8 +3,12 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="system.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
   <!-- <link rel="stylesheet" href="https://unpkg.com/98.css" /> -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 
 
 </head>
@@ -18,7 +22,7 @@
   </div>
     
   
-  <div class="window" id="main">
+  <div class="window" id="main" style="position: absolute; top: 50%; left: 50%; z-index: 1;">
     <div class="select title-bar" id="mainheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('main'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >RevaOS</h1>
@@ -37,7 +41,7 @@
         <p style="margin: 0px; color: #fff; ">Notes</p>
   </div>
 
-  <div class="window" id="notes" style="display:none;" >
+  <div class="window" id="notes" style="display:none;">
     <div class="select title-bar" id="notesheader">
       <button aria-label="Close" class="close" id="closenotes" onclick = "closeWindow(document.getElementById('notes'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >Notes</h1>
@@ -49,9 +53,11 @@
       <input aria-label="Example text box" type="text" placeholder="some cool text"/>
     </div>
   </div>
-  <button class="btn" onclick="openNotes(document.getElementById('notes'))"> notes </button>
 
-  <button class="btn" onclick="openNotes(document.getElementById('art'))"> art </button>
+  <button class="btn" onclick="openNotes(document.getElementById('notes'))" style="padding: 8px;"> notes </button>
+
+  <button class="btn" onclick="openNotes(document.getElementById('art'))" style="padding: 8px;"> art </button>
+
   
   <div class="window" id="art" style="display:none; width: 400px; height: 400px;" >
     <div class="select title-bar" id="artheader">
@@ -64,7 +70,7 @@
     </div>
   </div>
 
-  <div class="window" id="lemonade">
+  <div class="window" id="lemonade" style="position: absolute; top: 20%; left: 40%;z-index: 1;">
     <div class="select title-bar" id="lemonadeheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('lemonade'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >Lemonade Machine</h1>
@@ -77,7 +83,7 @@
   </div>
   
     
-  <div class="window" id="guitar">
+  <div class="window" id="guitar" style="position: absolute; top: 70%; left: 10%; z-index: 1;">
     <div class="select title-bar" id="guitarheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('guitar'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >DIY Guitar & Amp</h1>
@@ -88,13 +94,28 @@
       using physics principles from an Electricity and Magnetism class, my group and I made an electric guitar and our own amp!
     </div>
   </div>
-  
 
-  <div id="divid" style="width: 400px; height: 400px; margin: 0 auto; border-color: black;"> </div> <!-- trying to add a p5.js canvas to a window (in progress)-->
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
-  <script src="script.js"></script>  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/egg.js/1.0/egg.min.js"></script>
+  <div class="window" id="aframe" style="position: absolute; top: 20%; left: 10%; z-index: 1; height: 400px; width:400px;">
+    <div class="select title-bar" id="guitarheader" >
+      <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('guitar'))" style="cursor:pointer;"></button>
+      <h1 class="title" id="title" >A-frame </h1>
+      <button aria-label="Resize" class="resize" id="resizeguitar"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      <a-scene embedded>
+        <a-box color="blue">
+
+        </a-box>
+      </a-scene>
+    </div>
+  </div>  
+
+  <div id="divid" style="width: 400px; height: 400px; margin: 0 auto; border: 5px solid black;"> </div> <!-- trying to add a p5.js canvas to a window (in progress)-->
+ 
 </body>
+<script src="script.js"></script>  
+
 </html>
 
 
