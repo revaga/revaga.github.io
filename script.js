@@ -196,7 +196,7 @@ function initializeWindowart(elementName) {
     p.draw = function() {
       p.background(220);
 
-      if(mouseIsPressed){
+      if(p.mouseIsPressed){
         p.background(200)
       }
 

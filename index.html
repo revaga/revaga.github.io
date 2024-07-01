@@ -95,7 +95,7 @@
     </div>
   </div>
 
-  <div class="window" id="" style="position: absolute; top: 20%; left: 10%; z-index: 1; height: 700px; width: 700px;">
+  <div class="window" id="aframe" style="position: absolute; top: 20%; left: 10%; z-index: 1; height: 600px; width: 600px;">
     <div class="select title-bar" id="guitarheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('guitar'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >A-frame </h1>
@@ -105,13 +105,11 @@
     <div class="window-pane">
       <a-scene embedded>
         <a-assets>
-            <img id="sky" src="sky.png">
             <a-asset-item id="baretree" src="baretree.gltf"></a-asset-item>
-            </a-assets>
-
-            <a-sky color="gray"></a-sky>
-            <a-box color="#9FE2BF" height="200" width="200" rotation="90 0 0" position="0 0 0" depth="0.2"></a-box>
-            <a-entity gltf-model="#baretree" color="brown" position="0 1 0" scale="0.01 0.01 0.01"></a-entity>
+        </a-assets>
+          <a-sky color="gray"></a-sky>
+          <a-box color="#9FE2BF" height="20" width="20" rotation="90 0 0" position="0 0 0" depth="0.2"></a-box>
+          <a-entity gltf-model="#baretree" color="brown" position="2 1 -10" scale="0.01 0.01 0.01"></a-entity>
       </a-scene>
     </div>
   </div>  
