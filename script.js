@@ -197,11 +197,11 @@ function initializeWindowart(elementName) {
       p.background(220);
 
       if(p.mouseIsPressed){
-        p.background(200)
+        p.background(100)
       }
 
     };
 };
 
-let p5canvas = new p5(sketch, 'divid');
+let p5canvas = new p5(sketch, 'artdiv');
   
