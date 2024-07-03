@@ -12,6 +12,7 @@ window.onload = dragElement(document.getElementById("art"))
 window.onload = dragElement(document.getElementById("guitar"))
 window.onload = dragElement(document.getElementById("lemonade"))
 window.onload = dragElement(document.getElementById("aframe"))
+window.onload = dragElement(document.getElementById("books"))
 
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
@@ -154,38 +155,6 @@ function openNotes(element) {
   topBar.style.zIndex = biggestIndex + 1;
  
 }
-
-/*
-function initializeWindowart(elementName) {
-  var screen = document.querySelector("#" + elementName)
-  var element = document.getElementById("art");
-  addWindowTapHandling(screen)
-  windows.onload = dragElement(elementName)
-  if(elementName != "welcome") {
-  initializeIcon(elementName)  
-  }
-  setup();
-  draw();
-
-  function setup() {
-    createCanvas(200, 200);
-    background(0,0,0);
-  }
-  function windowResized() {
-    resizeCanvas(500, 500);
-  }
-  function draw() {
-    if (mouseIsPressed) {
-      fill(0);
-    } else {
-      fill(255);
-    }
-    ellipse(mouseX, mouseY, 80, 80);
-  }
-  windowResized();
-  } 
-
-  initializeWindowart("art") */
 
   let sketch = function(p) {
     p.setup = function() {

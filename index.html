@@ -124,9 +124,37 @@
     </div>
   </div>  
 
- <div id="bottomtag" style="position: absolute; bottom: 0%; background-color: gray;">
+  <div class="window" id="books" style="position: absolute; top: 15%; left: 60%; z-index: 4; height: 200px; width: 200px;">
+    <div class="select title-bar" id="booksheader">
+      <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('books'))" style="cursor:pointer;"></button>
+      <h1 class="title" id="title" > Books </h1>
+      <button aria-label="Resize" class="resize" id="resizeguitar"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      <div id="booklist"></div>
+    </div>
+  </div>  
 
- </div>
+  
+  <script>
+    let parent = document.getElementById("booklist")
+  fetch("https://api.airtable.com/v0/appnG920EgeSDbgtT/tblAKQHEYpWXx3o49", 
+  {headers:
+      {Authorization: "Bearer patpSYdx3Abw3h8h7.abd52d7dccadbb7102e7116d6a63ccf21006432cdd8e2ba529692e2b989570cb"}
+
+  }).then(res=> res.json()).then(json => {
+  let records = json.records.map(previousRecord =>{
+      return previousRecord.fields["Books"];       
+  })
+  let num = Math.floor(Math.random() * records.length)
+  console.log(records[num])
+  book_item = document.createElement("p")
+  book_item.innerHTML = records[num]
+  parent.appendChild(book_item)
+
+})
+</script>
   
 </body>
 <script src="script.js"></script>  
