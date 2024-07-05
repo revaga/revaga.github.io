@@ -15,14 +15,14 @@
 
 
 <body>
-  <div class="time">
-    <p id="timeElement">
+  <div class="time" >
+    <p id="timeElement" style="border: 2px solid black; padding: 5px; border-radius: 8px; opacity: 0.8; background-color: #FFC7DA;">
         Time
     </p>
   </div>
     
   
-  <div class="window" id="main" style="position: absolute; top: 10%; left: 35%; z-index: 1;">
+  <div class="window" id="main" style="position: absolute; top: 10%; left: 35%; z-index: 10;">
     <div class="select title-bar" id="mainheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('main'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >RevaOS</h1>
@@ -50,6 +50,8 @@
   <button class="btn" onclick="openNotes(document.getElementById('lemonade'))" style="padding: 8px; margin: 6px;"> rube goldberg</button>
   <br>
   <button class="btn" onclick="openNotes(document.getElementById('guitar'))" style="padding: 8px; margin: 6px;"> guitar </button>
+  <button class="btn" onclick="openNotes(document.getElementById('books'))" style="padding: 8px; margin: 6px;"> books </button>
+  <button class="btn" onclick="openNotes(document.getElementById('flexbox'))" style="padding: 8px; margin: 6px;"> flexbox </button>
 
 
 
@@ -68,7 +70,7 @@
 
 
   
-  <div class="window" id="art" style="display:none; width: 400px; height: 400px;" >
+  <div class="window" id="art" style="display:none; width: 400px; height: 400px; display: none;" >
     <div class="select title-bar" id="artheader">
       <button aria-label="Close" class="close" id="closeart" onclick = "closeWindow(document.getElementById('art'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" > p5.js Art </h1>
@@ -80,7 +82,7 @@
     </div>
   </div>
 
-  <div class="window" id="lemonade" style="position: absolute; top: 40%; left: 20%;z-index: 1;">
+  <div class="window" id="lemonade" style="position: absolute; top: 40%; left: 20%;z-index: 1; display: none;">
     <div class="select title-bar" id="lemonadeheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('lemonade'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >Lemonade Machine</h1>
@@ -93,7 +95,7 @@
   </div>
   
     
-  <div class="window" id="guitar" style="position: absolute; top: 70%; left: 10%; z-index: 1;">
+  <div class="window" id="guitar" style="position: absolute; top: 70%; left: 10%; z-index: 1; display: none;">
     <div class="select title-bar" id="guitarheader" >
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('guitar'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >DIY Guitar & Amp</h1>
@@ -105,7 +107,7 @@
     </div>
   </div>
 
-  <div class="window" id="aframe" style="position: absolute; top: 15%; left: 60%; z-index: 1; height: 600px; width: 600px;">
+  <div class="window" id="aframe" style="position: absolute; top: 15%; left: 60%; z-index: 1; height: 600px; width: 600px; display: none;">
     <div class="select title-bar" id="noheader">
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('aframe'))" style="cursor:pointer;"></button>
       <h1 class="title" id="title" >A-frame </h1>
@@ -124,10 +126,10 @@
     </div>
   </div>  
 
-  <div class="window" id="books" style="position: absolute; top: 15%; left: 60%; z-index: 4; height: 200px; width: 200px;">
+  <div class="window" id="books" style="position: absolute; top: 40%; left: 40%; z-index: 4; height: 150px; width: 200px; display: none;">
     <div class="select title-bar" id="booksheader">
       <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('books'))" style="cursor:pointer;"></button>
-      <h1 class="title" id="title" > Books </h1>
+      <h1 class="title" id="title">Books</h1>
       <button aria-label="Resize" class="resize" id="resizeguitar"></button>
     </div>
     <div class="separator"></div>
@@ -136,25 +138,36 @@
     </div>
   </div>  
 
+  <div class="window" id="flexbox" style="position: absolute; top: 15%; left: 65%; z-index: 4; height: 400px; width: 400px;">
+    <div class="select title-bar" id="flexboxheader">
+      <button aria-label="Close" class="close" id="close" onclick = "closeWindow(document.getElementById('flexbox'))" style="cursor:pointer;"></button>
+      <h1 class="title" id="title">Flexbox</h1>
+      <button aria-label="Resize" class="resize" id="resizeflexbox"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="window-pane">
+      <button class="btn" onclick="flexdirectionrow()"> flex direction: row</button>
+      <button class="btn" onclick="flexdirectioncol()"> flex direction: column</button>
+
+        <div id = "parentflex" style = "display: flex; background-color: lightsalmon;">
+          <div class = "childflex">1</div>
+          <div class = "childflex">2</div>
+          <div class = "childflex">3</div>
+        </div>
+    </div>
+  </div>  
   
-  <script>
-    let parent = document.getElementById("booklist")
-  fetch("https://api.airtable.com/v0/appnG920EgeSDbgtT/tblAKQHEYpWXx3o49", 
-  {headers:
-      {Authorization: "Bearer patpSYdx3Abw3h8h7.abd52d7dccadbb7102e7116d6a63ccf21006432cdd8e2ba529692e2b989570cb"}
+  <style>
+    #parentflex > .childflex{
+      background-color: #f1f1f1;
+      width: 50px;
+      margin: 10px;
+      text-align: center;
+      line-height: 75px;
+      font-size: 20px;
+    }
+  </style>
 
-  }).then(res=> res.json()).then(json => {
-  let records = json.records.map(previousRecord =>{
-      return previousRecord.fields["Books"];       
-  })
-  let num = Math.floor(Math.random() * records.length)
-  console.log(records[num])
-  book_item = document.createElement("p")
-  book_item.innerHTML = records[num]
-  parent.appendChild(book_item)
-
-})
-</script>
   
 </body>
 <script src="script.js"></script>  
