@@ -13,7 +13,7 @@ window.onload = dragElement(document.getElementById("guitar"))
 window.onload = dragElement(document.getElementById("lemonade"))
 window.onload = dragElement(document.getElementById("aframe"))
 window.onload = dragElement(document.getElementById("books"))
-window.onload = dragElement(document.getElementById("flexbox"))
+//window.onload = dragElement(document.getElementById("flexbox"))
 
 
 
